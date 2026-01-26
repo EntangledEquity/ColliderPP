@@ -12,11 +12,9 @@ If time permits, the project will be extended with a basic physics system and a 
 
 | Name | GitHub ID | Role |
 |------|-----------|------|
-| Sathvik | @VSathvikReddy | Lead |
-| Anvesh   | @ElementSnow10  | Lead |
-| Akshat   | @Akshat-Chaplot  | Lead |
-| Aarav | @aarav-prakash | Member |
-| Kanishka | @KanishkaDeveloper | Member |
-| Dhivakar | cs25b023-collab | Member |
-|  | | Member |
-|  |  | Member |
+| Sathvik | [VSathvikReddy](https://github.com/VSathvikReddy) | Lead |
+| Anvesh | [ElementSnow10](https://github.com/ElementSnow10) | Lead |
+| Akshat | [Akshat-Chaplot](https://github.com/Akshat-Chaplot) | Lead |
+| Aarav | [aarav-prakash](https://github.com/aarav-prakash) | Member |
+| Kanishka | [KanishkaDeveloper](https://github.com/KanishkaDeveloper) | Member |
+| Dhivakar | [cs25b023-collab](https://github.com/cs25b023-collab) | Member |
