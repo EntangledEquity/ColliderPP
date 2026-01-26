@@ -14,5 +14,5 @@ If time permits, the project will be extended with a basic physics system and a 
 |------|-----------|------|
 | Sathvik | @VSathvikReddy | Lead |
 | Anvesh   | @ElementSnow10  | Lead |
-|  | | Member |
+| Aarav | @aarav-prakash | Member |
 |  |  | Member |
