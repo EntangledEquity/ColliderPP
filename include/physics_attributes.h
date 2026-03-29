@@ -6,12 +6,12 @@ struct PhysicalAttributes {
     float angularMass;
     float restitution;
     sf::Color color;
-
     bool is_static = true;
     bool is_real = true;
 
-    static const PhysicalAttributes DEFAULT_PHYSICS_ATTRIBUTES;
+    static PhysicalAttributes DEFAULT_PHYSICS_ATTRIBUTE();
 };
+
 
 enum class ShapeID{
     NULL_SHAPE,

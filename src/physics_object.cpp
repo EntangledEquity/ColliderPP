@@ -2,8 +2,7 @@
 
 
 //constructor
-PhysicsObject::PhysicsObject(ShapeID id, const sf::Vector2f& pos,const PhysicalAttributes& attr)
-    : position(pos),attributes(attr),ID(id){
+PhysicsObject::PhysicsObject(ShapeID id, const sf::Vector2f& pos,const PhysicalAttributes& attr): position(pos),attributes(attr),ID(id){
 }
 //destructor
 PhysicsObject::~PhysicsObject() = default;
@@ -59,7 +58,6 @@ const PhysicalAttributes PhysicsObject::getAttributes() const{
 void PhysicsObject::setAttributes(const PhysicalAttributes& newAttributes){
     attributes=newAttributes;
 }
-
 
 
 

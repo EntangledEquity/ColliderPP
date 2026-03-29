@@ -19,4 +19,5 @@ public:
 
     float getWidth() const;
     float getBreadth() const;
+    void setSize(const float w, const float b);
 };
