@@ -11,9 +11,13 @@ DEPS := $(OBJS:.o=.d)
 INCS := $(shell find $(INC_DIR) -type d)
 INC_FLAGS := $(addprefix -I,$(INCS))
 
+# Include directories and flags
 CPPFLAGS := $(INC_FLAGS) -MMD -MP
-LDFLAGS := -lsfml-graphics -lsfml-window -lsfml-system
-CXX := g++
+# Linker flags for
+LDFLAGS := -lsfml-graphics -lsfml-window -lsfml-system 
+# Compiler flags -Wall -Wextra -Werror
+CXXFLAGS := -std=c++20
+CXX := g++ 
 
 # Final executable
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)

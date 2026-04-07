@@ -5,11 +5,22 @@
 #include <unordered_map>
 #include <iostream>
 
+enum class JType{
+    Null,
+    Bool,
+    Int,
+    Float,
+    String,
+    List,
+    Dict
+};
+
 class JObject {
 private:
-    std::string type;
+    JType type;
 
     union {
+        bool bvalue;
         int ivalue;
         float fvalue;
         std::string* svalue;
@@ -17,13 +28,16 @@ private:
         std::unordered_map<std::string, JObject>* mvalues;
     } data;
 
-    void check_error(const std::string& target) const;
+    void check_error(JType target) const;
     void clean_data();
     void deep_copy_data(const JObject& other);
 
 public:
     
-    JObject() = delete;
+    JObject(const char* file_path);
+
+    JObject();
+    JObject(bool a);
     JObject(int a);
     JObject(float a);
     JObject(const std::string& a);
@@ -36,6 +50,7 @@ public:
     JObject& operator=(JObject&& other) noexcept;
     ~JObject();
 
+    operator bool() const;
     operator int() const;
     operator float() const;
     operator std::string() const;
@@ -43,5 +58,6 @@ public:
     operator std::unordered_map<std::string, JObject>() const;
 
     const JObject& operator[](int idx) const;
+    const JObject& operator[](const char* key) const;
     const JObject& operator[](const std::string& key) const;
 };

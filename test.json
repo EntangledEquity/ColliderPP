@@ -1,0 +1,23 @@
+{
+  "project": "Terminal Engine",
+  "version": 0.95,
+  "build_id": -1024,
+  "active": true,
+  "settings": {
+    "resolution": [1920, 1080],
+    "fullscreen": false,
+    "fov": 75.5
+  },
+  "entities": [
+    {
+      "id": 1,
+      "name": "Player",
+      "pos": [0.0, 10.5, -5.0]
+    },
+    {
+      "id": 2,
+      "name": "Enemy",
+      "pos": [100, 20, 0]
+    }
+  ]
+}

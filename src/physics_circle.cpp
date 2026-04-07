@@ -1,10 +1,10 @@
 #include "physics_circle.h"
 
-Circle::Circle(float r, sf::Vector2f pos) : PhysicsObject(ShapeID::CIRCLE_SHAPE, pos, PhysicalAttributes::DEFAULT_PHYSICS_ATTRIBUTES), radius(r) {
+Circle::Circle(float r, sf::Vector2f pos) : PhysicsObject(ShapeID::CIRCLE_SHAPE, pos), radius(r) {
     shape.setRadius(radius);
     shape.setOrigin(sf::Vector2f(radius, radius));
     shape.setPosition(pos);
-    shape.setFillColor(attribute.color);
+    shape.setFillColor(getAttributes().color);
 }
 
 void Circle::sync() {
