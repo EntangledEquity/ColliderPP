@@ -16,8 +16,8 @@ CPPFLAGS := $(INC_FLAGS) -MMD -MP
 # Linker flags for
 LDFLAGS := -lsfml-graphics -lsfml-window -lsfml-system 
 # Compiler flags -Wall -Wextra -Werror
-CXXFLAGS := -std=c++20
-CXX := g++ 
+CXXFLAGS := -std=c++20 -O3
+CXX := g++
 
 # Final executable
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)

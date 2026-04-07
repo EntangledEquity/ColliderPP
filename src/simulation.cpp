@@ -1,5 +1,5 @@
 #include "simulation.h"
-
+#include "mjson/json.h"
 #include <iostream>
 #include <sstream>
 #include <algorithm>
@@ -7,59 +7,9 @@
 #include <map>
 
 PhySimulator::PhySimulator(const std::string& config_file_address){
-    load_config(config_file_address);
-    load_window();
-}
+    JObject config_json(config_file_address.c_str());
+    window.create(sf::VideoMode(int( config_json["screen_width"]),int(config_json["screen_height"])), std::string(config_json["Name"]));
 
-
-bool PhySimulator::load_window(){
-    try {
-        if (config.find("Name") == config.end() ||config.find("screen_width") == config.end() ||config.find("screen_height") == config.end()) {
-            std::cerr << "Missing window configuration fields\n";
-            return false;
-        }
-
-        std::string window_name = config["Name"];
-        int width = std::stoi(config["screen_width"]);
-        int height = std::stoi(config["screen_height"]);
-
-        window.create(sf::VideoMode(width, height), window_name);
-        return true;
-    }
-    catch (const std::invalid_argument&) {
-        std::cerr << "Invalid number in window configuration\n";
-        return false;
-    }
-    catch (const std::out_of_range&) {
-        std::cerr << "Number out of range in window configuration\n";
-        return false;
-    }
-
-}
-bool PhySimulator::load_config(const std::string& config_file_address){
-    std::ifstream config_file(config_file_address);
-
-    std::string line;
-    size_t line_count = 0;
-    while (std::getline(config_file, line)) {
-        line_count++;
-        if (line.empty()) continue;
-
-        std::vector<std::string> tokens(3);
-        std::stringstream ss(line);
-
-        if (!(ss >> tokens[0] >> tokens[1] >> tokens[2])) {
-            std::cerr <<"Invalid config line at "<<line_count<< "\nThe error: " << line << "\n";
-            continue;
-        }
-        if (tokens[1] != ":") {
-            std::cerr << "Missing ':' in line: " << line << "\n";
-            continue;
-        }
-
-        config[tokens[0]] = tokens[2];
-    }
-    return true;
 }
 
 void PhySimulator::process_event(){

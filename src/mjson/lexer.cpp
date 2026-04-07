@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstring>
-#include <map>
+#include <unordered_map>
 
 bool is_digit(char c){
     return c>='0' && c<='9';
@@ -154,7 +154,7 @@ bool Lexer::read_single(){
     }
 
 }
-std::map<std::string, TokenType> identifiers = {
+std::unordered_map<std::string, TokenType> identifiers = {
     {"true", TokenType::Bool},
     {"false", TokenType::Bool},
 };

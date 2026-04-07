@@ -4,7 +4,7 @@
 
 
 JParser::JParser(std::vector<Token>&& tokens) noexcept{
-    this->tokens = tokens;
+    this->tokens = std::move(tokens);
 }
 JObject JParser::result(){
     return parse_value();
@@ -59,7 +59,10 @@ JObject JParser::parse_dict(){
 
     while (peek().type != TokenType::RBrace) {
         std::string key = std::string(advance().lexeme); // Key must be string
-        advance(); // Consume ':'
+        if(advance().type != TokenType::Colon){
+            std::cerr << "Expected ':' after key!" << std::endl;
+            exit(1);
+        } // Consume ':'
         
         map[key] = parse_value(); // RECURSION HAPPENS HERE
 

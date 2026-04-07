@@ -1,14 +1,12 @@
-#include "mjson/lexer.h"
-#include "mjson/jobject.h"
-#include "mjson/parser.h"
+#include <chrono>
+#include <iostream>
 
+#include "simulation.h"
 using namespace std;
 
 int main(){
-    JObject json("test.json");
-    bool name = json["active"]; 
-    std::cout<<name<<'\n';
-    
+    PhySimulator sim("assets/config.json");
+    sim.run();
 
     return 0;
 }
